@@ -1,4 +1,4 @@
-@media screen and (0px < width < 575px) {
+@media screen and (0px < width <= 576px) {
   .container {
     width: 95%;
   }
@@ -79,7 +79,7 @@
     width: 100%;
   }
 }
-@media screen and (576px < width < 768px) {
+@media screen and (576px < width <= 768px) {
   .container {
     width: 90%;
   }
@@ -153,7 +153,7 @@
     width: 100%;
   }
 }
-@media screen and (769px < width < 992px) {
+@media screen and (768px < width <= 992px) {
   .container {
     width: 85%;
   }
@@ -219,7 +219,7 @@
     width: calc(50% - var(--defaultGap));
   }
 }
-@media screen and (993px < width < 1200px) {
+@media screen and (992px < width <= 1200px) {
   .container {
     width: 85%;
   }
@@ -251,7 +251,7 @@
     width: calc(50% - var(--defaultGap));
   }
 }
-@media screen and (1201px < width < 1400px) {
+@media screen and (1200px < width <= 1400px) {
   .container {
     width: 85%;
   }

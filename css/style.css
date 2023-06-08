@@ -130,6 +130,12 @@ nav .navPages li:hover a::after {
 nav .navPages a:hover {
   color: var(--headColor);
 }
+.navPages .navMenu {
+  display: none;
+}
+nav .navMenu i{
+  font-size: 25px;
+}
 
 body:not(body:has(:target)) .navPages li:first-child a,
 body:has(.home:target) .navPages li:first-child a,
