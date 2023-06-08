@@ -129,23 +129,27 @@ nav .navPages li:hover a::after {
 nav .navPages a:hover {
   color: var(--headColor);
 }
-/* *Line */
-:has(.home:target) li a[href="#home"]::after,
-:has(.chefs:target) li a[href="#chefs"]::after,
-:has(.gallery:target) li a[href="#gallery"]::after,
-:has(.contact:target) li a[href="#contact"]::after {
-  width: 100%;
-}
-/* *Color */
-body:not(body:has(:target)) li a[href="#home"],
-:has(.home:target) li a[href="#home"],
-:has(.chefs:target) li a[href="#chefs"],
-:has(.gallery:target) li a[href="#gallery"],
-:has(.contact:target) li a[href="#contact"] {
+
+body:not(body:has(:target)) li:first-child a,
+body:has(.home:target) li:first-child a,
+body:has(.chefs:target) li:nth-child(2) a,
+body:has(.gallery:target) li:nth-child(3) a,
+body:has(.contact:target) li:nth-child(4) a{ 
   color: var(--headColor);
 }
+/* *Line */
+body:not(body:has(:target)) li:first-child a::after,
+body:has(.home:target) li:first-child a::after,
+body:has(.chefs:target) li:nth-child(2) a::after,
+body:has(.gallery:target) li:nth-child(3) a::after,
+body:has(.contact:target) li:nth-child(4) a::after{
+  width: 100%;
+} 
 /* ?Nav Display Mode*/
 .navDisplay input {
+  /* display: none; */
+}
+.navDisplay input{
   display: none;
 }
 .navDisplay i {
@@ -153,15 +157,23 @@ body:not(body:has(:target)) li a[href="#home"],
   cursor: pointer;
   color: var(--headColor);
 }
-.navDisplay label:nth-of-type(2) {
+.navDisplay label:nth-of-type(2) { /*Default*/
   display: none;
 }
+
 .navDisplay #dark:checked ~ label:first-of-type {
-  display: none;
+ display: none;
 }
 .navDisplay #dark:checked ~ label:nth-of-type(2) {
   display: inline;
 }
+.navDisplay #light:checked ~ label:nth-of-type(2) {
+  display: none;
+}
+:has(.navDisplay #light:checked) label:first-of-type{
+  display: inline;
+}
+
 
 /* !Home */
 header {
@@ -247,8 +259,8 @@ header .homeImage:hover {
 }
 @keyframes shake {
   100% {
-    transform:translate(10px,10px);
-    rotate: 0.92deg;
+    transform:translate(3px,2px);
+    rotate: 0.5deg;
   }
 }
 
