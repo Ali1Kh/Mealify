@@ -22,6 +22,7 @@
   --defaultTextFontFamily: "Open Sans", sans-serif;
   --secondryDefaultFamily: "Inter", sans-serif;
   --defaultGap: 20px;
+  --marginR:20px;
 }
 :root:has(.navDisplay #dark:checked) {
   --backgroundMainColor: #252525;
@@ -48,7 +49,7 @@
 .mainTitle {
   text-align: center;
   padding: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 20px; 
 }
 .mainTitle h6 {
   font: 400 14px var(--defaultTextFontFamily);
@@ -76,9 +77,9 @@ ul {
 .logo h1::after {
   content: ".";
   position: absolute;
-  top: -15%;
+  top: 5%;
   color: var(--mainColor);
-  font-size: 40px;
+  font-size: 30px;
 }
 
 /* !NavBar */
@@ -130,26 +131,26 @@ nav .navPages a:hover {
   color: var(--headColor);
 }
 
-body:not(body:has(:target)) li:first-child a,
-body:has(.home:target) li:first-child a,
-body:has(.chefs:target) li:nth-child(2) a,
-body:has(.gallery:target) li:nth-child(3) a,
-body:has(.contact:target) li:nth-child(4) a{ 
+body:not(body:has(:target)) .navPages li:first-child a,
+body:has(.home:target) .navPages li:first-child a,
+body:has(.chefs:target) .navPages li:nth-child(2) a,
+body:has(.gallery:target) .navPages li:nth-child(3) a,
+body:has(.contact:target) .navPages li:nth-child(4) a {
   color: var(--headColor);
 }
 /* *Line */
-body:not(body:has(:target)) li:first-child a::after,
-body:has(.home:target) li:first-child a::after,
-body:has(.chefs:target) li:nth-child(2) a::after,
-body:has(.gallery:target) li:nth-child(3) a::after,
-body:has(.contact:target) li:nth-child(4) a::after{
+body:not(body:has(:target)) .navPages li:first-child a::after,
+body:has(.home:target) .navPages li:first-child a::after,
+body:has(.chefs:target) .navPages li:nth-child(2) a::after,
+body:has(.gallery:target) .navPages li:nth-child(3) a::after,
+body:has(.contact:target) .navPages li:nth-child(4) a::after {
   width: 100%;
-} 
+}
 /* ?Nav Display Mode*/
 .navDisplay input {
   /* display: none; */
 }
-.navDisplay input{
+.navDisplay input {
   display: none;
 }
 .navDisplay i {
@@ -157,12 +158,13 @@ body:has(.contact:target) li:nth-child(4) a::after{
   cursor: pointer;
   color: var(--headColor);
 }
-.navDisplay label:nth-of-type(2) { /*Default*/
+.navDisplay label:nth-of-type(2) {
+  /*Default*/
   display: none;
 }
 
 .navDisplay #dark:checked ~ label:first-of-type {
- display: none;
+  display: none;
 }
 .navDisplay #dark:checked ~ label:nth-of-type(2) {
   display: inline;
@@ -170,13 +172,13 @@ body:has(.contact:target) li:nth-child(4) a::after{
 .navDisplay #light:checked ~ label:nth-of-type(2) {
   display: none;
 }
-:has(.navDisplay #light:checked) label:first-of-type{
+:has(.navDisplay #light:checked) label:first-of-type {
   display: inline;
 }
 
-
 /* !Home */
 header {
+  padding-top: 130px;
   height: 100vh;
   display: flex;
   background-color: var(--backgroundMainColor);
@@ -189,7 +191,7 @@ header .container {
 .homeContent {
   width: 35%;
 }
-.homeContent *:not(.homeContent button:nth-of-type(2) .buttonIcon ){
+.homeContent *:not(.homeContent button:nth-of-type(2) .buttonIcon) {
   padding-block: 15px;
 }
 header .homeContent h2 {
@@ -204,30 +206,32 @@ header .homeContent p {
 header .homeContent button:first-of-type {
   background-color: var(--mainColor);
   border-color: transparent;
-  border-radius: 0px 15px 15px 15px;
+  border-radius: 0px 100vh 100vh 100vh;
   color: aliceblue;
   padding: 10px 25px;
   margin-right: 20px;
+  cursor: pointer;
 }
-header .homeContent button:nth-of-type(2){
+header .homeContent button:nth-of-type(2) {
   padding: 10px 20px;
   border: none;
   background-color: transparent;
   font: 600 16px var(--defaultTextFontFamily);
   color: var(--headColor);
+  cursor: pointer;
 }
 header .homeContent button:nth-of-type(2) .buttonIcon {
   border-radius: 100vh;
   margin-right: 5px;
   font-size: 16px;
   border: 1px solid transparent;
-  background-color: var(--backgroundThirdColor); 
+  background-color: var(--backgroundThirdColor);
   display: inline;
   position: relative;
-  z-index:1;
+  z-index: 1;
   padding: 8px 13px;
 }
-header .homeContent button:nth-of-type(2) .buttonIcon::before{
+header .homeContent button:nth-of-type(2) .buttonIcon::before {
   content: "";
   position: absolute;
   z-index: -1;
@@ -238,29 +242,28 @@ header .homeContent button:nth-of-type(2) .buttonIcon::before{
   background-color: #cf1312;
   border: 8px solid var(--mainColor);
   border-radius: 100vh 0 0 100vh;
-  }
+}
 
-  header .homeContent button:nth-of-type(2):hover{
+header .homeContent button:nth-of-type(2):hover {
   color: var(--mainColor);
-  }
+}
 header .homeImage {
   width: 35%;
 }
 header .homeImage img {
   width: 100%;
-  filter:drop-shadow(4px 4px 9px rgba(0,0,0,0.4));
-  
+  filter: drop-shadow(4px 4px 9px rgba(0, 0, 0, 0.4));
 }
 header .homeImage:hover {
   animation-name: shake;
-  animation-duration: 0.09s;
+  animation-duration: 0.08s;
   animation-direction: alternate;
   animation-iteration-count: infinite;
 }
 @keyframes shake {
   100% {
-    transform:translate(3px,2px);
-    rotate: 0.5deg;
+    transform-origin: center;
+    transform: translate(1px, -1px) rotate(1.1deg);
   }
 }
 
@@ -273,6 +276,7 @@ header .homeImage:hover {
   display: flex;
   flex-wrap: wrap;
   gap: var(--defaultGap);
+  margin-bottom: 40px;
 }
 .chefsCardItem {
   width: calc(calc(100% - var(--defaultGap) * 2) / 3);
@@ -333,7 +337,7 @@ header .homeImage:hover {
   color: var(--secondryColor);
 }
 .chefsCards .chefsCardItem .itemContent p {
-  font: 400 15px var(--secondryDefaultFamily);
+  font: italic 400 15px var(--secondryDefaultFamily);
   color: var(--secondryColor);
 }
 /* ?Hovering */
@@ -353,26 +357,59 @@ header .homeImage:hover {
 }
 .galleryImages {
   display: flex;
-}
-.galleryCard {
-  margin: 5px;
-}
-.galleryCard {
-  width: calc(100% / 3);
-}
-.galleryImages .galleryItem {
-  margin: 15px 5px;
-  border: 4px solid #fff;
-  position: relative;
+  flex-wrap: wrap;
+  flex-direction: column;
+  height: 75rem;
+  gap: var(--defaultGap);
 }
 
-.galleryImages .galleryCard .galleryItem img {
+.galleryImages .galleryItem {
+  border: 4px solid #fff;
+  position: relative;
+  width: calc(calc(100% - var(--defaultGap) * 2) / 3);
+  position: relative;
+  overflow: hidden;
+}
+
+.galleryImages .galleryItem img {
   width: 100%;
   display: block;
-  position: relative;
+  transition: all 0.5s;
 }
-.galleryImages .galleryCard .galleryItem {
+.galleryImages .galleryItem:hover img {
+  scale: 1.09;
 }
+.galleryImages .galleryItem .imageLayer {
+  position: absolute;
+  top: 120%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.5s;
+}
+.galleryImages .galleryItem:hover .imageLayer {
+  top: 0;
+  opacity: 1;
+}
+.galleryImages .galleryItem .imageLayer .layerContent * {
+  padding: 8px 15px;
+}
+.galleryImages .galleryItem .imageLayer .layerContent h6 {
+  font: 700 24px var(--secondryDefaultFamily);
+}
+.galleryImages .galleryItem .imageLayer .layerContent p {
+  font: 400 16px var(--defaultTextFontFamily);
+}
+
 /* !Contact */
 .contact {
   padding-block: 45px;
@@ -444,7 +481,8 @@ form *:focus {
   border-color: var(--mainColor);
 }
 form textarea {
-  height: 150px;
+  min-height: 150px;
+  max-height: 250px;
   resize: vertical;
 }
 form button {
@@ -458,7 +496,7 @@ form button {
 /* !Footer */
 footer {
   padding-block: 25px;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
     url(../imgs/textured-metal-background.jpg);
   background-position: center center;
   background-size: cover;
@@ -472,6 +510,7 @@ footer {
 }
 .footerCards {
   display: flex;
+  flex-wrap: wrap;
   gap: var(--defaultGap);
   font: 400 16px var(--defaultTextFontFamily);
 }
@@ -498,9 +537,11 @@ footer {
 }
 .footerCards .infoCard .itemContent .socialIcons {
   border-top: 1px solid #eee;
+  display: flex;
+  justify-content: space-evenly;
 }
 .footerCards .infoCard .itemContent .socialIcons i {
-  padding-inline: 15px;
+  padding-inline: 10px;
   font-weight: 400;
   font-size: 24px;
 }
@@ -511,20 +552,20 @@ footer {
 .footerCards
   .aboutCard
   *:not(button, .cardInput, .Qlinks, .Qlinks li, .Qlinks ul) {
-  padding-block: 10px;
+  padding-block: 12px;
 }
 .footerCards .aboutCard .cardInput {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
 }
 .footerCards .aboutCard input {
   margin-right: var(--marginR);
-  width: 80%;
+  width: calc(calc(80% - var(--marginR)));
   padding-inline: 10px;
 }
 .footerCards .aboutCard button {
-  padding: 2px 20px;
+  /* padding: 2px 20px; */
+  width: 20%;
   color: var(--headerFontColor);
   border: 1px solid transparent;
   background-color: var(--mainColor);
@@ -534,11 +575,11 @@ footer {
   flex-wrap: wrap;
   gap: 0px var(--defaultGap);
 }
-.footerCards .aboutCard .Qlinks li {
+.footerCards .aboutCard .Qlinks li{
   width: calc(calc(100% - var(--defaultGap)) / 2);
   transition: all 0.5s;
 }
-.footerCards .aboutCard .Qlinks li:hover {
+.footerCards .aboutCard .Qlinks li:hover{
   translate: 10px;
   background-color: #222222;
 }
@@ -555,6 +596,7 @@ footer {
 
 .footerCards .contactCard li {
   display: flex;
+  align-items: center;
 }
 .footerCards .contactCard i {
   padding-right: 15px;
