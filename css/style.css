@@ -23,6 +23,8 @@
   --secondryDefaultFamily: "Inter", sans-serif;
   --defaultGap: 20px;
   --marginR:20px;
+  scroll-padding-top:85px ;
+  scroll-behavior: smooth;
 }
 :root:has(.navDisplay #dark:checked) {
   --backgroundMainColor: #252525;
@@ -184,7 +186,6 @@ body:has(.contact:target) .navPages li:nth-child(4) a::after {
 
 /* !Home */
 header {
-  padding-top: 130px;
   height: 100vh;
   display: flex;
   background-color: var(--backgroundMainColor);
